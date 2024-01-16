@@ -120,7 +120,7 @@ void InputSalaryData(IEmployee employee)
 
         {
             Console.WriteLine($"{e.Message}");
-            var weightOfFruitAsFloat = 0f;
+            
         }
         finally
         {
