@@ -74,11 +74,6 @@ void AddDataToFile()
 
 }
 
-//void InputSalaryData(object sender, EventArgs args)
-//{
-//    throw new NotImplementedException();
-//}
-
 void AddDataToMemory()
 {
     Console.WriteLine($"\n--------------------------------------------------------------------------------------------");
@@ -95,35 +90,30 @@ void AddDataToMemory()
 
 }
 
-
-
 void InputSalaryData(IEmployee employee)
 {
 
     var calculateSalary = new DataForCalculation();
+    float salaryForFruit;
+
     Console.WriteLine("\nEnter the weight of the harvested fruit in kilograms (e.g. 7,82) ");
 
     foreach (var fruit in calculateSalary.Fruits)
     {
         Console.WriteLine($"{fruit} [kg]: ");
-
-        float salaryForFruit = 0;
+        float weightOfFruitAsFloat = 0;
         var weightOfFruit = Console.ReadLine();
+        
         try
         {
-
-            var weightOfFruitAsFloat = calculateSalary.ParseToFloat(weightOfFruit);
-
-
+            weightOfFruitAsFloat = calculateSalary.ParseToFloat(weightOfFruit);
         }
         catch (Exception e)
 
         {
-            Console.WriteLine($"{e.Message}");
-            
+            Console.WriteLine($"{e.Message}");          
         }
-        finally
-        {
+        
             switch (fruit)
             {
                 case "Apple":
@@ -150,7 +140,7 @@ void InputSalaryData(IEmployee employee)
                     employee.AddSalary(salaryForFruit);
                     break;
             }
-        }
+        
     }
 }
 

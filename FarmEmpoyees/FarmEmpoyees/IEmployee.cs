@@ -5,10 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FarmEmployees
-{
-    internal interface IEmployee
-    {
-    
+{        
     public interface IEmployee
     {
         string Name { get; }
@@ -22,4 +19,4 @@ namespace FarmEmployees
 
     }
 }
-}
+
