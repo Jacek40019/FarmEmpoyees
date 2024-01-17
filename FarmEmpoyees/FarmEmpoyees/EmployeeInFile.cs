@@ -9,7 +9,7 @@ namespace FarmEmployees
 {
     public class EmployeeInFile : EmployeeBase
     {
-        //public override event SalaryAddedDelegate SalaryAdded;
+        public override event SalaryAddedDelegate SalaryAdded;
 
         private const string suffixFilename = "_FARMemployee.txt";
 
@@ -52,14 +52,30 @@ namespace FarmEmployees
         {
             using (var writer = File.AppendText(filename))
             {
-                writer.WriteLine(salaryForFruit);
 
-                //if (SalaryAdded != null)
-                //{
-                //    SalaryAdded(this, new EventArgs());
-                //}
+
+                if (salaryForFruit >= 0)
+                {
+                    writer.WriteLine(salaryForFruit);
+
+                    if (SalaryAdded != null)
+                    {
+                        SalaryAdded(this, new EventArgs());
+                    }
+    }
+                else
+                {
+                    writer.WriteLine(0);
+
+                    if (SalaryAdded != null)
+                    {
+                        SalaryAdded(this, new EventArgs());
+                    }
+
+                    throw new Exception("invalid weightOfFruit value (negative value is not allowed)");                    
+                }                 
             }
-        }
+        }    
 
         public override Statistics GetStatistics()
         {
@@ -76,7 +92,6 @@ namespace FarmEmployees
                         var line = reader.ReadLine();
                         var value = float.Parse(line);
                         statistics.AddSalary(value);
-
                     }
                 }
             }

@@ -8,7 +8,7 @@ namespace FarmEmployees
 {
     public class EmployeeInMemory : EmployeeBase
     {
-        //public override event SalaryAddedDelegate SalaryAdded;
+        public override event SalaryAddedDelegate SalaryAdded;
 
         private List<float> salaryForFruits = new List<float>();
 
@@ -42,19 +42,30 @@ namespace FarmEmployees
         public EmployeeInMemory(string name, string surname)
               : base(name, surname)
         {
-            ;
         }
 
         public override void AddSalary(float salaryForFruit)
         {
-
             {
-                this.salaryForFruits.Add(salaryForFruit);
+                if (salaryForFruit >= 0)
+                {
+                    this.salaryForFruits.Add(salaryForFruit);
 
-                //if (SalaryAdded != null)
-                //{
-                //    SalaryAdded(this, new EventArgs());
-                //}
+                    if (SalaryAdded != null)
+                    {
+                        SalaryAdded(this, new EventArgs());
+                    }
+                }
+                else
+                {
+                    this.salaryForFruits.Add(0);
+
+                    if (SalaryAdded != null)
+                    {
+                        SalaryAdded(this, new EventArgs());
+                    }
+                    throw new Exception("invalid weightOfFruit value (negative value is not allowed)");
+                }
             }
         }
 

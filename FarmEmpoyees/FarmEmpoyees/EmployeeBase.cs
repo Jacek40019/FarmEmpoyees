@@ -8,8 +8,9 @@ namespace FarmEmployees
 {
     public abstract class EmployeeBase : IEmployee
     {
-        //public delegate void SalaryAddedDelegate (object sender, EventArgs args);
-        //public abstract event SalaryAddedDelegate SalaryAdded;
+        public delegate void SalaryAddedDelegate (object sender, EventArgs args);
+        
+        public abstract event SalaryAddedDelegate SalaryAdded;
 
         public EmployeeBase(string name, string surname)
         {
@@ -53,11 +54,7 @@ namespace FarmEmployees
                     Console.WriteLine($"Norma godzinowa: {(float)Math.Round(employeeStat.StandardHourlyIncome, 2, MidpointRounding.AwayFromZero)} PLN");
                     Console.ResetColor();
                 }
-
             }
-
         }
-
-
     }
 }

@@ -42,12 +42,7 @@ namespace FarmEmployees
             }
             else
             {
-                //Console.ForegroundColor = ConsoleColor.Red;
-                //Console.WriteLine("to nie jest liczba");
-                //Console.ResetColor();
-
-
-                throw new Exception("invalid weightOfFruit value (string is not float)");
+               throw new Exception("invalid weightOfFruit value (string is not float)");
             }
         }
 

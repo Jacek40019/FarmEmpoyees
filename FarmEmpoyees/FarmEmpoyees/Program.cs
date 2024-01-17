@@ -65,13 +65,16 @@ void AddDataToFile()
     Console.WriteLine("Enter the employee's surname:");
     var surname = Console.ReadLine();
     var employee = new EmployeeInFile(name, surname);
-    //employee.SalaryAdded += InputSalaryData;
-
+    
+    employee.SalaryAdded += SalaryAddedInfo;        
     InputSalaryData(employee);
     employee.GetStatistics();
     employee.ShowStatistics();
 
-
+    void SalaryAddedInfo(object sender, EventArgs argse)
+    {
+        Console.WriteLine("saved to file");    
+    }
 }
 
 void AddDataToMemory()
@@ -82,19 +85,26 @@ void AddDataToMemory()
     Console.WriteLine("Enter the employee's surname:");
     var surname = Console.ReadLine();
     var employee = new EmployeeInMemory(name, surname);
-    //employee.SalaryAdded += InputSalaryData;
-
+    
+    employee.SalaryAdded += SalaryAddedInfo;
     InputSalaryData(employee);
     employee.GetStatistics();
     employee.ShowStatistics();
 
+    void SalaryAddedInfo(object sender, EventArgs argse)
+    {
+        Console.WriteLine("saved to memory");
+    }
 }
 
 void InputSalaryData(IEmployee employee)
 {
 
     var calculateSalary = new DataForCalculation();
-    float salaryForFruit;
+
+    float rateKgFruit = 0;
+    float salaryForFruit = 0;
+
 
     Console.WriteLine("\nEnter the weight of the harvested fruit in kilograms (e.g. 7,82) ");
 
@@ -102,47 +112,68 @@ void InputSalaryData(IEmployee employee)
     {
         Console.WriteLine($"{fruit} [kg]: ");
         float weightOfFruitAsFloat = 0;
+       
         var weightOfFruit = Console.ReadLine();
-        
+
         try
         {
             weightOfFruitAsFloat = calculateSalary.ParseToFloat(weightOfFruit);
         }
         catch (Exception e)
-
         {
-            Console.WriteLine($"{e.Message}");          
+            Console.WriteLine($"{e.Message}");
         }
-        
-            switch (fruit)
+
+
+        switch (fruit)
+        {
+                  
+
+            case "Apple":
+                rateKgFruit = calculateSalary.RateKgApple;
+                break;
+
+            case "Strawberries":
+                rateKgFruit = calculateSalary.RateKgStrawberries;
+                break;
+
+            case "Grapes":
+                rateKgFruit = calculateSalary.RateKgGrapes;
+                break;
+
+            case "Berries":
+                rateKgFruit = calculateSalary.RateKgBerries;
+                break;
+        }
+
+
+        try
+        {
+            salaryForFruit = weightOfFruitAsFloat * rateKgFruit;
+            employee.AddSalary(salaryForFruit);
+
+            switch (salaryForFruit)
             {
-                case "Apple":
-                    salaryForFruit = weightOfFruitAsFloat * calculateSalary.RateKgApple;
-                    Console.WriteLine($"saved {salaryForFruit:N2} PLN at the rate {calculateSalary.RateKgApple} per kilogram of {fruit}\n");
-                    employee.AddSalary(salaryForFruit);
+                case 0f:
+                    Console.WriteLine($"saved {salaryForFruit:N2}\n"); 
                     break;
-
-                case "Strawberries":
-                    salaryForFruit = weightOfFruitAsFloat * calculateSalary.RateKgStrawberries;
-                    Console.WriteLine($"saved {salaryForFruit:N2} PLN at the rate {calculateSalary.RateKgStrawberries} per kilogram of {fruit}\n");
-                    employee.AddSalary(salaryForFruit);
-                    break;
-
-                case "Grapes":
-                    salaryForFruit = weightOfFruitAsFloat * calculateSalary.RateKgGrapes;
-                    Console.WriteLine($"saved {salaryForFruit:N2} PLN at the rate {calculateSalary.RateKgGrapes} per kilogram of {fruit}\n");
-                    employee.AddSalary(salaryForFruit);
-                    break;
-
-                case "Berries":
-                    salaryForFruit = weightOfFruitAsFloat * calculateSalary.RateKgBerries;
-                    Console.WriteLine($"saved {salaryForFruit:N2} PLN at the rate {calculateSalary.RateKgBerries} per kilogram of {fruit}\n");
-                    employee.AddSalary(salaryForFruit);
+                default: 
+                    Console.WriteLine($"saved {salaryForFruit:N2} PLN at the rate {rateKgFruit} per kilogram of {fruit}\n");
                     break;
             }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"{e.Message}");
+            salaryForFruit = 0;
+            employee.AddSalary(salaryForFruit);
+            Console.WriteLine($"saved {salaryForFruit:N2}\n");
+
+        }
         
     }
 }
+
 
 void PrintInfo()
 {
