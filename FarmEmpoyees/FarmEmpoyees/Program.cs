@@ -59,9 +59,29 @@ void AddDataToFile()
 {
     Console.WriteLine($"\n--------------------------------------------------------------------------------------------");
     Console.WriteLine("Enter the employee's name:");
-    var name = Console.ReadLine();
+
+    string name = null;
+    while (string.IsNullOrWhiteSpace(name))
+    {
+        name = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            Console.WriteLine("Name cannot be empty. Please enter a valid name:");
+        }
+    }
+
     Console.WriteLine("Enter the employee's surname:");
-    var surname = Console.ReadLine();
+
+    string surname = null;
+    while (string.IsNullOrWhiteSpace(surname))
+    {
+        surname = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(surname))
+        {
+            Console.WriteLine("Surname cannot be empty. Please enter a valid surname:");
+        }
+    }
+       
     var employee = new EmployeeInFile(name, surname);
     
     employee.SalaryAdded += SalaryAddedInfo;        
@@ -80,17 +100,30 @@ void AddDataToMemory()
 {
     Console.WriteLine($"\n--------------------------------------------------------------------------------------------");
     Console.WriteLine("Enter the employee's name:");
-    var name = Console.ReadLine();
-    Console.WriteLine("Enter the employee's surname:");
-    var surname = Console.ReadLine();
-    var employee = new EmployeeInMemory(name, surname);
-    
-    employee.SalaryAdded += SalaryAddedInfo;
-    InputSalaryData(employee);
-    employee.GetStatistics();
-    employee.ShowStatistics();
 
-    void SalaryAddedInfo(object sender, EventArgs argse)
+    string name = null;
+    while (string.IsNullOrWhiteSpace(name))
+    {
+        name = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            Console.WriteLine("Name cannot be empty. Please enter a valid name:");
+        }
+    }
+
+    Console.WriteLine("Enter the employee's surname:");
+
+    string surname = null;
+    while (string.IsNullOrWhiteSpace(surname))
+    {
+        surname = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(surname))
+        {
+            Console.WriteLine("Surname cannot be empty. Please enter a valid surname:");
+        }
+    }
+
+    var employee = new EmployeeInFile(name, surname);
     {
         Console.WriteLine("saved to memory");
     }
