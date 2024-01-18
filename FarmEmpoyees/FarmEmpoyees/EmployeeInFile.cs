@@ -44,7 +44,7 @@ namespace FarmEmployees
         public EmployeeInFile(string name, string surname)
                : base(name, surname)
         {
-            filename = $"{name}_{surname}{suffixFilename}";
+            filename = $"{Name}_{Surname}{suffixFilename}";
         }
 
 
