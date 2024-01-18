@@ -96,7 +96,6 @@ namespace FarmEmployees
                 }
             }
             return statistics;
-
         }
     }
 }

@@ -15,8 +15,6 @@ Console.WriteLine("<any key> - enter salary data");
 Console.WriteLine("\nplease enter your choice:");
 
 
-
-
 while (true)
 {
     var input = Console.ReadLine();
@@ -77,6 +75,7 @@ void AddDataToFile()
     }
 }
 
+
 void AddDataToMemory()
 {
     Console.WriteLine($"\n--------------------------------------------------------------------------------------------");
@@ -97,6 +96,7 @@ void AddDataToMemory()
     }
 }
 
+
 void InputSalaryData(IEmployee employee)
 {
 
@@ -105,15 +105,15 @@ void InputSalaryData(IEmployee employee)
     float rateKgFruit = 0;
     float salaryForFruit = 0;
 
-
     Console.WriteLine("\nEnter the weight of the harvested fruit in kilograms (e.g. 7,82) ");
 
     foreach (var fruit in calculateSalary.Fruits)
     {
+              
         Console.WriteLine($"{fruit} [kg]: ");
-        float weightOfFruitAsFloat = 0;
-       
+          
         var weightOfFruit = Console.ReadLine();
+        float weightOfFruitAsFloat = 0;
 
         try
         {
@@ -126,8 +126,7 @@ void InputSalaryData(IEmployee employee)
 
 
         switch (fruit)
-        {
-                  
+        {               
 
             case "Apple":
                 rateKgFruit = calculateSalary.RateKgApple;
@@ -166,11 +165,8 @@ void InputSalaryData(IEmployee employee)
         {
             Console.WriteLine($"{e.Message}");
             salaryForFruit = 0;
-            employee.AddSalary(salaryForFruit);
             Console.WriteLine($"saved {salaryForFruit:N2}\n");
-
-        }
-        
+        }        
     }
 }
 

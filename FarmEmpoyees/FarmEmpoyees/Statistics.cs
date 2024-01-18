@@ -8,7 +8,6 @@ namespace FarmEmployees
 {
     public class Statistics
     {
-
         public float Count { get; private set; }
         public float Sum { get; private set; }
         public float DailyWorkingNorm { get; private set; }

@@ -29,7 +29,7 @@ namespace FarmEmployees
 
             this.DailyWorkingNorm = 8f;
             this.WeeklyWorkingNorm = 40f;
-            this.StandardHourlyIncome = 37.57f;
+            this.StandardHourlyIncome = 40f;
         }
 
         public float ParseToFloat(string weightOfFruit)
@@ -38,7 +38,6 @@ namespace FarmEmployees
             if (float.TryParse(weightOfFruit, out float result))
             {
                 return result;
-
             }
             else
             {
