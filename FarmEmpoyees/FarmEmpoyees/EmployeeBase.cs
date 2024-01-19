@@ -22,8 +22,8 @@ namespace FarmEmployees
         public abstract string Surname { get; set; }
         public abstract void AddSalary(float salaryForFruit);
         public abstract Statistics GetStatistics();
-
-
+        
+        
         public void ShowStatistics()
         {
             var employeeStat = GetStatistics();

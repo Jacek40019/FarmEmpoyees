@@ -81,17 +81,17 @@ void AddDataToFile()
             Console.WriteLine("Surname cannot be empty. Please enter a valid surname:");
         }
     }
-       
+
     var employee = new EmployeeInFile(name, surname);
-    
-    employee.SalaryAdded += SalaryAddedInfo;        
+
+    employee.SalaryAdded += SalaryAddedInfo;
     InputSalaryData(employee);
     employee.GetStatistics();
     employee.ShowStatistics();
 
     void SalaryAddedInfo(object sender, EventArgs argse)
     {
-        Console.WriteLine("saved to file");    
+        Console.WriteLine("saved to file");
     }
 }
 
@@ -123,7 +123,14 @@ void AddDataToMemory()
         }
     }
 
-    var employee = new EmployeeInFile(name, surname);
+    var employee = new EmployeeInMemory(name, surname);
+
+    employee.SalaryAdded += SalaryAddedInfo;
+    InputSalaryData(employee);
+    employee.GetStatistics();
+    employee.ShowStatistics();
+
+    void SalaryAddedInfo(object sender, EventArgs argse)
     {
         Console.WriteLine("saved to memory");
     }
@@ -142,9 +149,9 @@ void InputSalaryData(IEmployee employee)
 
     foreach (var fruit in calculateSalary.Fruits)
     {
-              
+
         Console.WriteLine($"{fruit} [kg]: ");
-          
+
         var weightOfFruit = Console.ReadLine();
         float weightOfFruitAsFloat = 0;
 
@@ -159,7 +166,7 @@ void InputSalaryData(IEmployee employee)
 
 
         switch (fruit)
-        {               
+        {
 
             case "Apple":
                 rateKgFruit = calculateSalary.RateKgApple;
@@ -187,9 +194,9 @@ void InputSalaryData(IEmployee employee)
             switch (salaryForFruit)
             {
                 case 0f:
-                    Console.WriteLine($"saved {salaryForFruit:N2}\n"); 
+                    Console.WriteLine($"saved {salaryForFruit:N2}\n");
                     break;
-                default: 
+                default:
                     Console.WriteLine($"saved {salaryForFruit:N2} PLN at the rate {rateKgFruit} per kilogram of {fruit}\n");
                     break;
             }
@@ -199,7 +206,7 @@ void InputSalaryData(IEmployee employee)
             Console.WriteLine($"{e.Message}");
             salaryForFruit = 0;
             Console.WriteLine($"saved {salaryForFruit:N2}\n");
-        }        
+        }
     }
 }
 
