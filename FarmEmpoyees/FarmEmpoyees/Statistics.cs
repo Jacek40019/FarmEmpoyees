@@ -52,7 +52,6 @@ namespace FarmEmployees
         {
             this.Count++;
             this.Sum += salary;
-
         }
     }
 }

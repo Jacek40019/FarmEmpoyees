@@ -18,8 +18,6 @@ namespace FarmEmployees
         public float WeeklyWorkingNorm { get; private set; }
         public float StandardHourlyIncome { get; private set; }
 
-
-
         public DataForCalculation()
         {
             this.RateKgApple = 0.20f;

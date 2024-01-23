@@ -80,7 +80,6 @@ namespace FarmEmployees
                 statistics.AddSalary(salaryForFruit);
             }
             return statistics;
-
         }
     }
 }

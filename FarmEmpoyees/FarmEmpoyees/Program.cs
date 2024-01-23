@@ -164,7 +164,6 @@ void InputSalaryData(IEmployee employee)
             Console.WriteLine($"{e.Message}");
         }
 
-
         switch (fruit)
         {
 
@@ -184,7 +183,6 @@ void InputSalaryData(IEmployee employee)
                 rateKgFruit = calculateSalary.RateKgBerries;
                 break;
         }
-
 
         try
         {
@@ -210,7 +208,6 @@ void InputSalaryData(IEmployee employee)
     }
 }
 
-
 void PrintInfo()
 {
     var printInfo = new DataForCalculation();
@@ -224,7 +221,7 @@ void PrintInfo()
     Console.WriteLine($"1 kg of berries = {printInfo.RateKgBerries} PLN");
     Console.WriteLine($"\nDayly working norm is {printInfo.DailyWorkingNorm} hours");
     Console.WriteLine($"Weekly working norm is {printInfo.WeeklyWorkingNorm} hours");
-    Console.WriteLine($"Average hourly income {printInfo.StandardHourlyIncome} PLN");
+    Console.WriteLine($"Hourly income norm is {printInfo.StandardHourlyIncome} PLN");
     Console.WriteLine("--------------------------------------------------------------------------------------------");
     Console.ResetColor();
 }

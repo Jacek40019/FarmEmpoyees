@@ -47,7 +47,6 @@ namespace FarmEmployees
             filename = $"{Name}_{Surname}{suffixFilename}";
         }
 
-
         public override void AddSalary(float salaryForFruit)
         {
             using (var writer = File.AppendText(filename))

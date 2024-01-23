@@ -43,7 +43,7 @@ namespace FarmEmployees
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"Deviation from the hourly incom norm: + {(float)Math.Round(employeeStat.DeviationFromStandardHourlyIncome, 2, MidpointRounding.AwayFromZero)} %");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine($"Norma godzinowa: {(float)Math.Round(employeeStat.StandardHourlyIncome, 2, MidpointRounding.AwayFromZero)} PLN");
+                    Console.WriteLine($"Hourly incom norm: {(float)Math.Round(employeeStat.StandardHourlyIncome, 2, MidpointRounding.AwayFromZero)} PLN");
                     Console.ResetColor();
                 }
                 else
@@ -51,7 +51,7 @@ namespace FarmEmployees
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Deviation from the hourly incom norm: {(float)Math.Round(employeeStat.DeviationFromStandardHourlyIncome, 2, MidpointRounding.AwayFromZero)} %");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine($"Norma godzinowa: {(float)Math.Round(employeeStat.StandardHourlyIncome, 2, MidpointRounding.AwayFromZero)} PLN");
+                    Console.WriteLine($"Hourly incom norm: {(float)Math.Round(employeeStat.StandardHourlyIncome, 2, MidpointRounding.AwayFromZero)} PLN");
                     Console.ResetColor();
                 }
             }

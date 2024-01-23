@@ -29,7 +29,6 @@ namespace FarmEmployees.Tests
                       
         }
 
-
         [Test]
         public void WhenInputFloatNegativeValue_ShouldGetException()
         {
