@@ -6,16 +6,16 @@
         public void WhenStringParseToFloat_ShouldGetCorrectValueOrException()
         {
             // arrange
-            var data = new DataForCalculation();
+            // var data = new DataForCalculation();
             
             // act
-            var result1 = data.ParseToFloat("-3,14");
-            var result2 = data.ParseToFloat("0");
-            var result3 = data.ParseToFloat("3,14");
-            var result4 = data.ParseToFloat("1,004");
-            var result5 = data.ParseToFloat("1,005");
+            var result1 = DataForCalculation.ParseToFloat("-3,14");
+            var result2 = DataForCalculation.ParseToFloat("0");
+            var result3 = DataForCalculation.ParseToFloat("3,14");
+            var result4 = DataForCalculation.ParseToFloat("1,004");
+            var result5 = DataForCalculation.ParseToFloat("1,005");
             
-            var exception = Assert.Throws<Exception>(() => data.ParseToFloat("abc"));
+            var exception = Assert.Throws<Exception>(() => DataForCalculation.ParseToFloat("abc"));
 
 
             //assert

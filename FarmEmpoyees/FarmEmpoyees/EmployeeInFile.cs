@@ -45,7 +45,7 @@ namespace FarmEmployees
                         SalaryAdded(this, new EventArgs());
                     }
 
-                    throw new Exception("invalid weightOfFruit value (negative value is not allowed)");
+                    throw new Exception("invalid weightOfFruit value (negative value is not allowed)");                    
                 }                 
             }
         }    
@@ -53,8 +53,7 @@ namespace FarmEmployees
         public override Statistics GetStatistics()
         {
 
-            var data = new DataForCalculation();
-            var statistics = new Statistics(data);
+            var statistics = new Statistics();
 
             if (File.Exists($"{filename}"))
             {

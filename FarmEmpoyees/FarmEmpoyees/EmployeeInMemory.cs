@@ -44,9 +44,8 @@ namespace FarmEmployees
 
         public override Statistics GetStatistics()
         {
-
-            var data = new DataForCalculation();
-            var statistics = new Statistics(data);
+                        
+            var statistics = new Statistics();
 
             foreach (var salaryForFruit in this.salaryForFruits)
             {

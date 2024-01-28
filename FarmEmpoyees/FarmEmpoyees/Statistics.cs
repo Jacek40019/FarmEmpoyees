@@ -38,14 +38,14 @@ namespace FarmEmployees
             }
         }
 
-        public Statistics(DataForCalculation data)
+        public Statistics()
         {
             this.Count = 0;
             this.Sum = 0;
 
-            this.DailyWorkingNorm = data.DailyWorkingNorm;
-            this.WeeklyWorkingNorm = data.WeeklyWorkingNorm;
-            this.StandardHourlyIncome = data.StandardHourlyIncome;
+            this.DailyWorkingNorm = DataForCalculation.DailyWorkingNorm;
+            this.WeeklyWorkingNorm = DataForCalculation.WeeklyWorkingNorm;
+            this.StandardHourlyIncome = DataForCalculation.StandardHourlyIncome;
         }
 
         public void AddSalary(float salary)

@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace FarmEmployees
 {
-    public class DataForCalculation
+    public static class DataForCalculation
     {
 
-        public string[] Fruits { get; } = { "Apple", "Strawberries", "Grapes", "Berries" };
-        public float RateKgApple { get; private set; }
-        public float RateKgStrawberries { get; private set; }
-        public float RateKgGrapes { get; private set; }
-        public float RateKgBerries { get; private set; }
-        public float DailyWorkingNorm { get; private set; }
-        public float WeeklyWorkingNorm { get; private set; }
-        public float StandardHourlyIncome { get; private set; }
+        public static string[] Fruits { get; } = { "Apple", "Strawberries", "Grapes", "Berries" };
+        public static float RateKgApple { get; private set; }
+        public static float RateKgStrawberries { get; private set; }
+        public static float RateKgGrapes { get; private set; }
+        public static float RateKgBerries { get; private set; }
+        public static float DailyWorkingNorm { get; private set; }
+        public static float WeeklyWorkingNorm { get; private set; }
+        public static float StandardHourlyIncome { get; private set; }
 
-        public DataForCalculation()
+        static DataForCalculation()
         {
-            this.RateKgApple = 0.20f;
-            this.RateKgStrawberries = 1.20f;
-            this.RateKgGrapes = 1.25f;
-            this.RateKgBerries = 2.80f;
+            RateKgApple = 0.20f;
+            RateKgStrawberries = 1.20f;
+            RateKgGrapes = 1.25f;
+            RateKgBerries = 2.80f;
 
-            this.DailyWorkingNorm = 8f;
-            this.WeeklyWorkingNorm = 40f;
-            this.StandardHourlyIncome = 40f;
-        }
+            DailyWorkingNorm = 8f;
+            WeeklyWorkingNorm = 40f;
+            StandardHourlyIncome = 40f;
+        }   
 
-        public float ParseToFloat(string weightOfFruit)
+        public static float ParseToFloat(string weightOfFruit)
         {
 
             if (float.TryParse(weightOfFruit, out float result))

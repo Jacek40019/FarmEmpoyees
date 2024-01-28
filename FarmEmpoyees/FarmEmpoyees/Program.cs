@@ -98,14 +98,12 @@ void AddData(bool isInFile)
 void InputSalaryData(IEmployee employee)
 {
 
-    var calculateSalary = new DataForCalculation();
-
     float rateKgFruit = 0;
     float salaryForFruit = 0;
 
     Console.WriteLine("\nEnter the weight of the harvested fruit in kilograms (e.g. 7,82) ");
 
-    foreach (var fruit in calculateSalary.Fruits)
+    foreach (var fruit in DataForCalculation.Fruits)
     {
 
         Console.WriteLine($"{fruit} [kg]: ");
@@ -115,7 +113,7 @@ void InputSalaryData(IEmployee employee)
 
         try
         {
-            weightOfFruitAsFloat = calculateSalary.ParseToFloat(weightOfFruit);
+            weightOfFruitAsFloat = DataForCalculation.ParseToFloat(weightOfFruit);
         }
         catch (Exception e)
         {
@@ -126,19 +124,19 @@ void InputSalaryData(IEmployee employee)
         {
 
             case "Apple":
-                rateKgFruit = calculateSalary.RateKgApple;
+                rateKgFruit = DataForCalculation.RateKgApple;
                 break;
 
             case "Strawberries":
-                rateKgFruit = calculateSalary.RateKgStrawberries;
+                rateKgFruit = DataForCalculation.RateKgStrawberries;
                 break;
 
             case "Grapes":
-                rateKgFruit = calculateSalary.RateKgGrapes;
+                rateKgFruit = DataForCalculation.RateKgGrapes;
                 break;
 
             case "Berries":
-                rateKgFruit = calculateSalary.RateKgBerries;
+                rateKgFruit = DataForCalculation.RateKgBerries;
                 break;
         }
 
@@ -168,18 +166,16 @@ void InputSalaryData(IEmployee employee)
 
 void PrintInfo()
 {
-    var printInfo = new DataForCalculation();
-
     Console.ForegroundColor = ConsoleColor.DarkYellow;
     Console.WriteLine("------------------------------------ Salary information ------------------------------------");
     Console.WriteLine("Rates per kg of fruit:");
-    Console.WriteLine($"1 kg of apples = {printInfo.RateKgApple} PLN");
-    Console.WriteLine($"1 kg of strawberries = {printInfo.RateKgStrawberries} PLN");
-    Console.WriteLine($"1 kg of grapes = {printInfo.RateKgGrapes} PLN");
-    Console.WriteLine($"1 kg of berries = {printInfo.RateKgBerries} PLN");
-    Console.WriteLine($"\nDayly working norm is {printInfo.DailyWorkingNorm} hours");
-    Console.WriteLine($"Weekly working norm is {printInfo.WeeklyWorkingNorm} hours");
-    Console.WriteLine($"Hourly income norm is {printInfo.StandardHourlyIncome} PLN");
+    Console.WriteLine($"1 kg of apples = {DataForCalculation.RateKgApple} PLN");
+    Console.WriteLine($"1 kg of strawberries = {DataForCalculation.RateKgStrawberries} PLN");
+    Console.WriteLine($"1 kg of grapes = {DataForCalculation.RateKgGrapes} PLN");
+    Console.WriteLine($"1 kg of berries = {DataForCalculation.RateKgBerries} PLN");
+    Console.WriteLine($"\nDayly working norm is {DataForCalculation.DailyWorkingNorm} hours");
+    Console.WriteLine($"Weekly working norm is {DataForCalculation.WeeklyWorkingNorm} hours");
+    Console.WriteLine($"Hourly income norm is {DataForCalculation.StandardHourlyIncome} PLN");
     Console.WriteLine("--------------------------------------------------------------------------------------------");
     Console.ResetColor();
 }
