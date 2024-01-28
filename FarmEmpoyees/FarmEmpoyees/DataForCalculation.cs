@@ -41,38 +41,6 @@ namespace FarmEmployees
             {
                throw new Exception("invalid weightOfFruit value (string is not float)");
             }
-        }
-
-        public float ParseToFloat(int weightOfFruit)
-        {
-            {
-                float result = (float)weightOfFruit;
-                return result;
-            }
-        }
-
-        public float ParseToFloat(double weightOfFruit)
-        {
-            {
-                float result = (float)weightOfFruit;
-                return result;
-            }
-        }
-
-        public float ParseToFloat(long weightOfFruit)
-        {
-            {
-                float result = (float)weightOfFruit;
-                return result;
-            }
-        }
-
-        public float ParseToFloat(decimal weightOfFruit)
-        {
-            {
-                float result = (float)weightOfFruit;
-                return result;
-            }
-        }
+        }        
     }
 }

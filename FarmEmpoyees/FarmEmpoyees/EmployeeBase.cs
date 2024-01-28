@@ -12,14 +12,46 @@ namespace FarmEmployees
         
         public abstract event SalaryAddedDelegate SalaryAdded;
 
+
+        protected string FormatName(string name)
+        {
+            return $"{char.ToUpper(name[0])}{name.Substring(1).ToLower()}";
+        }
+
+        private string name;
+        private string surname;
+
+        public virtual string Name
+        {
+            get
+            {
+                return FormatName(name);
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+        public virtual string Surname
+        {
+            get
+            {
+                return FormatName(surname);
+            }
+            set
+            {
+                surname = value;
+            }
+        }
+
+        
         public EmployeeBase(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
         }
 
-        public abstract string Name { get; set; }
-        public abstract string Surname { get; set; }
         public abstract void AddSalary(float salaryForFruit);
         public abstract Statistics GetStatistics();
         

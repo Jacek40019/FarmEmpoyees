@@ -36,11 +36,11 @@ while (true)
         {
             case "f":
             case "F":
-                AddDataToFile();
+                AddData(true); // StudentInFile
                 break;
             case "m":
             case "M":
-                AddDataToMemory();
+                AddData(false); // StudentInMemory
                 break;
             case "q":
             case "Q":
@@ -55,7 +55,7 @@ while (true)
 Console.WriteLine("### Thank you for using my App ###");
 
 
-void AddDataToFile()
+void AddData(bool isInFile)
 {
     Console.WriteLine($"\n--------------------------------------------------------------------------------------------");
     Console.WriteLine("Enter the employee's name:");
@@ -82,7 +82,7 @@ void AddDataToFile()
         }
     }
 
-    var employee = new EmployeeInFile(name, surname);
+    IEmployee employee = isInFile ? new EmployeeInFile(name, surname) : new EmployeeInMemory (name, surname);
 
     employee.SalaryAdded += SalaryAddedInfo;
     InputSalaryData(employee);
@@ -91,51 +91,9 @@ void AddDataToFile()
 
     void SalaryAddedInfo(object sender, EventArgs argse)
     {
-        Console.WriteLine("saved to file");
+        Console.WriteLine("Salary saved");
     }
 }
-
-
-void AddDataToMemory()
-{
-    Console.WriteLine($"\n--------------------------------------------------------------------------------------------");
-    Console.WriteLine("Enter the employee's name:");
-
-    string name = null;
-    while (string.IsNullOrWhiteSpace(name))
-    {
-        name = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(name))
-        {
-            Console.WriteLine("Name cannot be empty. Please enter a valid name:");
-        }
-    }
-
-    Console.WriteLine("Enter the employee's surname:");
-
-    string surname = null;
-    while (string.IsNullOrWhiteSpace(surname))
-    {
-        surname = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(surname))
-        {
-            Console.WriteLine("Surname cannot be empty. Please enter a valid surname:");
-        }
-    }
-
-    var employee = new EmployeeInMemory(name, surname);
-
-    employee.SalaryAdded += SalaryAddedInfo;
-    InputSalaryData(employee);
-    employee.GetStatistics();
-    employee.ShowStatistics();
-
-    void SalaryAddedInfo(object sender, EventArgs argse)
-    {
-        Console.WriteLine("saved to memory");
-    }
-}
-
 
 void InputSalaryData(IEmployee employee)
 {

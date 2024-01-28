@@ -13,34 +13,9 @@ namespace FarmEmployees
 
         private const string suffixFilename = "_FARMemployee.txt";
 
-        private string name;
-        private string surname;
         private string filename;
 
-        public override string Name
-        {
-            get
-            {
-                return $"{char.ToUpper(name[0])}{name.Substring(1, name.Length - 1).ToLower()}";
-            }
-            set
-            {
-                name = value;
-            }
-        }
-
-        public override string Surname
-        {
-            get
-            {
-                return $"{char.ToUpper(surname[0])}{surname.Substring(1, surname.Length - 1).ToLower()}";
-            }
-            set
-            {
-                surname = value;
-            }
-        }
-
+       
         public EmployeeInFile(string name, string surname)
                : base(name, surname)
         {
@@ -52,7 +27,6 @@ namespace FarmEmployees
             using (var writer = File.AppendText(filename))
             {
 
-
                 if (salaryForFruit >= 0)
                 {
                     writer.WriteLine(salaryForFruit);
@@ -61,7 +35,7 @@ namespace FarmEmployees
                     {
                         SalaryAdded(this, new EventArgs());
                     }
-    }
+                }
                 else
                 {
                     writer.WriteLine(0);
@@ -71,7 +45,7 @@ namespace FarmEmployees
                         SalaryAdded(this, new EventArgs());
                     }
 
-                    throw new Exception("invalid weightOfFruit value (negative value is not allowed)");                    
+                    throw new Exception("invalid weightOfFruit value (negative value is not allowed)");
                 }                 
             }
         }    
